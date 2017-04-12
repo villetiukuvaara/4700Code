@@ -33,7 +33,7 @@ dx = x(2) - x(1);
 % paras = [len/64,len/2,0*C.q_0,1*C.q_0];
 
 pot = @Pot_NWell;
-paras = [len / 16, len / 64, 6, len / 2, 0 * C.q_0, 10 * C.q_0];
+paras = [len / 16, len / 64, 5, len / 2, 0 * C.q_0, 10 * C.q_0];
 
 % pot = @Pot_para;
 % paras = [10/(len^2)*C.q_0,len/2];

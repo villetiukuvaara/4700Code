@@ -8,19 +8,28 @@ a = paras(5);
 b = paras(6);
 
 %U = a;
-%if(mod(x,2) == 0) % Even number of wells
-    delx = mod(abs(x-x0),dx+dw);
+delx = mod(abs(x-x0),dx+dw);
+
+if(mod(n,2) == 0) % Even number of wells
     if(x < x0 - dx*(n-1)/2 - dw*n/2)
         U = a;
     elseif(x > x0 + dx*(n-1)/2 + dw*n/2)
         U = a;
-    else if(delx > dx/2 && delx < dx/2 + dw)
+    elseif(delx > dx/2 && delx < dx/2 + dw)
         U = b;
     else
         U = a;
-    end
-%else % Odd number of wells
-%    U = a;
-%end
+    end    
+else % Odd number of wells
+    if(x < x0 - dx*n/2 - dw*(n-1)/2)
+        U = a;
+    elseif(x > x0 + dx*n/2 + dw*(n-1)/2)
+        U = a;
+    elseif(delx < dw/2 || delx > dx + dw/2)
+        U = b;
+    else
+        U = a;
+    end 
+end
 
 end
